@@ -2,63 +2,317 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio | Dong Nhat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huỳnh Nhật Đông | Game & Web Developer Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --primary: #38bdf8;
+      --accent: #818cf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --tag-bg: #0f172a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      margin: 40px;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 40px 20px;
     }
-    h1 {
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Header Profile */
+    header {
       text-align: center;
+      margin-bottom: 50px;
     }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .social-links a {
+      color: var(--text-muted);
+      font-size: 1.3rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2.section-title {
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--card-border);
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+    }
+
+    /* Tech Stack Badges */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-badge {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Project Cards Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 20px;
+    }
+
     .card {
-      background: white;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 600px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    a {
-      color: #0066cc;
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.1);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .card-header h3 {
+      font-size: 1.25rem;
+      color: var(--text-main);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--card-border);
+    }
+
+    .card-links {
+      display: flex;
+      gap: 15px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 15px;
+    }
+
+    .card-links a {
+      color: var(--text-main);
       text-decoration: none;
-      margin-right: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .card-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-<h1> My Projects</h1>
+  <div class="container">
+    
+    <!-- Header -->
+    <header>
+      <h1>Huỳnh Nhật Đông</h1>
+      <p class="subtitle">Game Developer & Software Engineer</p>
+      <div class="social-links">
+        <a href="https://github.com/DongNhat2510" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:donghuynh2510@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </header>
 
-<div class="card">
-  <h2>🎮 Dungeon Slasher</h2>
-  <p>Top-down action gameplay, chiến đấu nhanh, khám phá tự do và mở khóa kỹ năng</p>
-  <p><b>Công nghệ:</b> Unity, C#, GitHub</p>
-  <a href="https://github.com/TacHoang/GA20301-DA1-NHOM6-V2">GitHub</a>
-</div>
+    <!-- Tech Stack -->
+    <section id="skills">
+      <h2 class="section-title"><i class="fas fa-code"></i> Dynamic Tech Stack</h2>
+      <div class="skills-grid">
+        <span class="skill-badge">Unity Engine</span>
+        <span class="skill-badge">C# Scripting</span>
+        <span class="skill-badge">Photon Fusion (Netcode)</span>
+        <span class="skill-badge">HTML5 / CSS3</span>
+        <span class="skill-badge">Git & GitHub</span>
+        <span class="skill-badge">Blender 3D</span>
+      </div>
+    </section>
 
-<div class="card">
-  <h2>🎮 Tiệm Phở Sáng Tạo</h2>
-  <p>Kinh dị, Indie, mô phỏng quản lý</p>
-  <p><b>Công nghệ:</b> Unity, C#, GitHub</p>
-  <a href="https://github.com/kyozah/hanibanl">GitHub</a>
-</div>
+    <!-- Projects Grid -->
+    <section id="projects">
+      <h2 class="section-title"><i class="fas fa-cubes"></i> Featured Projects</h2>
+      
+      <div class="projects-grid">
 
-<div class="card">
-  <h2>🎮 Blade-Pursuit</h2>
-  <p>Action RPG, Souls-like, Dark Fantasy</p>
-  <p><b>Công nghệ:</b> Unity, C#, GitHub</p>
-  <a href="https://github.com/kyozah/Blade-Pursuit">GitHub</a>
-</div>
+        <!-- Project 1 -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <h3>⚔️ Dungeon Slasher</h3>
+            </div>
+            <p>Trò chơi nhập vai hành động góc nhìn từ trên xuống (Top-down Action RPG). Tập trung vào hệ thống combat tốc độ cao, khám phá bản đồ tự do và cơ chế mở khóa kỹ năng nhân vật.</p>
+            <div class="tech-tags">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/TacHoang/GA20301-DA1-NHOM6-V2" target="_blank"><i class="fab fa-github"></i> Repository</a>
+          </div>
+        </div>
 
-<div class="card">
-  <h2> DEMO Website KFC</h2>
-  <p>Trang chủ order thức ăn nhanh </p>
-  <p><b>Công nghệ:</b> HTML, CSS, GitHub</p>
-  <a href="https://github.com/DongNhat2510/Website_KFC">GitHub</a>
-  <a href="https://dongnhat2510.github.io/Website_KFC/">website</a>
-</div>
+        <!-- Project 2 -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <h3>🍜 Tiệm Phở Sáng Tạo</h3>
+            </div>
+            <p>Game Indie kết hợp yếu tố kinh dị và mô phỏng quản lý (Management Simulation). Người chơi quản lý quán ăn và xử lý các sự kiện bất ngờ trong không gian huyền bí.</p>
+            <div class="tech-tags">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">Game Design</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/kyozah/hanibanl" target="_blank"><i class="fab fa-github"></i> Repository</a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <h3>🗡️ Blade-Pursuit</h3>
+            </div>
+            <p>Dự án Action RPG lấy cảm hứng từ thể loại Souls-like trong bối cảnh Dark Fantasy. Yêu cầu tính toán thời điểm né tránh, phản công và quản lý thể lực (stamina) chặt chẽ.</p>
+            <div class="tech-tags">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">Souls-like Combat</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/kyozah/Blade-Pursuit" target="_blank"><i class="fab fa-github"></i> Repository</a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <h3>🍔 KFC Web Front-End Demo</h3>
+            </div>
+            <p>Giao diện trang chủ đặt đồ ăn nhanh được mô phỏng theo thương hiệu KFC. Tối ưu hiển thị thực đơn, giỏ hàng responsive trên giao diện web cơ bản.</p>
+            <div class="tech-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/DongNhat2510/Website_KFC" target="_blank"><i class="fab fa-github"></i> Code</a>
+            <a href="https://dongnhat2510.github.io/Website_KFC/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Huỳnh Nhật Đông. Built with HTML, CSS & Clean Code principles.</p>
+    </footer>
+
+  </div>
 
 </body>
 </html>
